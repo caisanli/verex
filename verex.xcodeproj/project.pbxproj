@@ -51,6 +51,11 @@
 		B3188DA027FDC1A7003C403B /* verex */ = {
 			isa = PBXGroup;
 			children = (
+				B3188DB327FDC902003C403B /* Api */,
+				B3188DB227FDC7E6003C403B /* Components */,
+				B3188DB127FDC73B003C403B /* Utils */,
+				B3188DB027FDC731003C403B /* Views */,
+				B3188DAF27FDC728003C403B /* Model */,
 				B3188DA127FDC1A7003C403B /* verexApp.swift */,
 				B3188DA327FDC1A7003C403B /* ContentView.swift */,
 				B3188DA527FDC1AC003C403B /* Assets.xcassets */,
@@ -65,6 +70,41 @@
 				B3188DA827FDC1AC003C403B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B3188DAF27FDC728003C403B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3188DB027FDC731003C403B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B3188DB127FDC73B003C403B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B3188DB227FDC7E6003C403B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B3188DB327FDC902003C403B /* Api */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
