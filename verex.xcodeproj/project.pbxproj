@@ -11,6 +11,12 @@
 		B3188DA427FDC1A7003C403B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3188DA327FDC1A7003C403B /* ContentView.swift */; };
 		B3188DA627FDC1AC003C403B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3188DA527FDC1AC003C403B /* Assets.xcassets */; };
 		B3188DA927FDC1AC003C403B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3188DA827FDC1AC003C403B /* Preview Assets.xcassets */; };
+		B3A6627127FF15F20014E82E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B3A6627027FF15F20014E82E /* Alamofire */; };
+		B3A6627327FF180B0014E82E /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A6627227FF180B0014E82E /* request.swift */; };
+		B3A6627527FF25710014E82E /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A6627427FF25710014E82E /* api.swift */; };
+		B3BAB13D2802CE3E00224AB9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAB13C2802CE3E00224AB9 /* HomeView.swift */; };
+		B3BAB13F2802CE4B00224AB9 /* NodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAB13E2802CE4B00224AB9 /* NodesView.swift */; };
+		B3BAB1412802CE6E00224AB9 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAB1402802CE6E00224AB9 /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,11 @@
 		B3188DA327FDC1A7003C403B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B3188DA527FDC1AC003C403B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3188DA827FDC1AC003C403B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3A6627227FF180B0014E82E /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
+		B3A6627427FF25710014E82E /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
+		B3BAB13C2802CE3E00224AB9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B3BAB13E2802CE4B00224AB9 /* NodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesView.swift; sourceTree = "<group>"; };
+		B3BAB1402802CE6E00224AB9 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A6627127FF15F20014E82E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +63,6 @@
 		B3188DA027FDC1A7003C403B /* verex */ = {
 			isa = PBXGroup;
 			children = (
-				B3188DB327FDC902003C403B /* Api */,
 				B3188DB227FDC7E6003C403B /* Components */,
 				B3188DB127FDC73B003C403B /* Utils */,
 				B3188DB027FDC731003C403B /* Views */,
@@ -82,6 +93,9 @@
 		B3188DB027FDC731003C403B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3BAB13C2802CE3E00224AB9 /* HomeView.swift */,
+				B3BAB13E2802CE4B00224AB9 /* NodesView.swift */,
+				B3BAB1402802CE6E00224AB9 /* UserView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -89,6 +103,8 @@
 		B3188DB127FDC73B003C403B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B3A6627427FF25710014E82E /* api.swift */,
+				B3A6627227FF180B0014E82E /* request.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -98,13 +114,6 @@
 			children = (
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		B3188DB327FDC902003C403B /* Api */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +132,9 @@
 			dependencies = (
 			);
 			name = verex;
+			packageProductDependencies = (
+				B3A6627027FF15F20014E82E /* Alamofire */,
+			);
 			productName = verex;
 			productReference = B3188D9E27FDC1A7003C403B /* verex.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +163,9 @@
 				Base,
 			);
 			mainGroup = B3188D9527FDC1A7003C403B;
+			packageReferences = (
+				B3A6626F27FF15F20014E82E /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B3188D9F27FDC1A7003C403B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -177,8 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BAB13F2802CE4B00224AB9 /* NodesView.swift in Sources */,
 				B3188DA427FDC1A7003C403B /* ContentView.swift in Sources */,
 				B3188DA227FDC1A7003C403B /* verexApp.swift in Sources */,
+				B3A6627527FF25710014E82E /* api.swift in Sources */,
+				B3BAB13D2802CE3E00224AB9 /* HomeView.swift in Sources */,
+				B3A6627327FF180B0014E82E /* request.swift in Sources */,
+				B3BAB1412802CE6E00224AB9 /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +399,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3A6626F27FF15F20014E82E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3A6627027FF15F20014E82E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3A6626F27FF15F20014E82E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B3188D9627FDC1A7003C403B /* Project object */;
 }
