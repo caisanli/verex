@@ -8,9 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    enum TabEnum {
+        case index
+        case nodes
+        case user
+    }
+    
+    @State var section = TabEnum.index
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView(selection: $section) {
+            HomeView().tabItem {
+                Image(systemName: "house")
+            }.tag(TabEnum.index)
+            
+            NodesView().tabItem {
+                Image(systemName: "square.grid.2x2")
+            }.tag(TabEnum.nodes)
+            
+            UserView().tabItem {
+                Image(systemName: "person")
+            }.tag(TabEnum.user)
+        }
     }
 }
 
