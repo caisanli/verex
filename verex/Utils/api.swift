@@ -27,7 +27,7 @@ let GET_NOTIFICATIONS = "/v2/notifications"
 // method: DELETE
 // reset: :notification_id
 // https://www.v2ex.com/api/v2/notifications/123456
-let DEL_NOTIFICATION = "/v2/otifications"
+let DEL_NOTIFICATION = "/v2/notifications"
 
 // 获取自己的Profile
 // method: GET
