@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// 节点信息
 struct Node: Codable, Hashable, Identifiable {
     var id: Int
     var name: String // 唯一name
