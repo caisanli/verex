@@ -8,7 +8,7 @@
 import Foundation
 
 enum IndexTabEnum: String {
-    case all
+//    case all
     case tech
     case creative
     case play
@@ -25,8 +25,8 @@ enum IndexTabEnum: String {
     func displayName() -> String {
         var name: String = ""
         switch(self) {
-            case .all:
-                name = "全部"
+//            case .all:
+//                name = "全部"
             case .tech:
                 name = "技术"
             case .creative:
@@ -68,7 +68,7 @@ struct IndexTabItem {
 
 // 首页Tab数据
 let IndexTabData: [IndexTabItem] = [
-    IndexTabItem(IndexTabEnum.all),
+//    IndexTabItem(IndexTabEnum.all),
     IndexTabItem(IndexTabEnum.tech),
     IndexTabItem(IndexTabEnum.creative),
     IndexTabItem(IndexTabEnum.play),
