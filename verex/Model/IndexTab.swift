@@ -10,7 +10,7 @@ import Foundation
 enum IndexTabEnum: String {
 //    case all
     case tech
-    case creative
+//    case creative
     case play
     case apple
     case jobs
@@ -29,8 +29,8 @@ enum IndexTabEnum: String {
 //                name = "全部"
             case .tech:
                 name = "技术"
-            case .creative:
-                name = "创意"
+//            case .creative:
+//                name = "创意"
             case .play:
                 name = "好玩"
             case .apple:
@@ -70,7 +70,7 @@ struct IndexTabItem {
 let IndexTabData: [IndexTabItem] = [
 //    IndexTabItem(IndexTabEnum.all),
     IndexTabItem(IndexTabEnum.tech),
-    IndexTabItem(IndexTabEnum.creative),
+//    IndexTabItem(IndexTabEnum.creative),
     IndexTabItem(IndexTabEnum.play),
     IndexTabItem(IndexTabEnum.apple),
     IndexTabItem(IndexTabEnum.jobs),
