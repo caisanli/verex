@@ -14,6 +14,8 @@
 		B3A6627127FF15F20014E82E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B3A6627027FF15F20014E82E /* Alamofire */; };
 		B3A6627327FF180B0014E82E /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A6627227FF180B0014E82E /* request.swift */; };
 		B3A6627527FF25710014E82E /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A6627427FF25710014E82E /* api.swift */; };
+		B3B0C9102810281300BF71CF /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B3B0C90F2810281300BF71CF /* Toast */; };
+		B3B0C9132810295500BF71CF /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = B3B0C9122810295500BF71CF /* SwiftSoup */; };
 		B3B1805F280D98DA009B6787 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B1805E280D98DA009B6787 /* Member.swift */; };
 		B3B5E444280465560096AE08 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5E443280465560096AE08 /* Node.swift */; };
 		B3B5E44628046FCC0096AE08 /* IndexTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5E44528046FCC0096AE08 /* IndexTab.swift */; };
@@ -55,7 +57,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B0C9102810281300BF71CF /* Toast in Frameworks */,
 				B3A6627127FF15F20014E82E /* Alamofire in Frameworks */,
+				B3B0C9132810295500BF71CF /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +165,8 @@
 			name = verex;
 			packageProductDependencies = (
 				B3A6627027FF15F20014E82E /* Alamofire */,
+				B3B0C90F2810281300BF71CF /* Toast */,
+				B3B0C9122810295500BF71CF /* SwiftSoup */,
 			);
 			productName = verex;
 			productReference = B3188D9E27FDC1A7003C403B /* verex.app */;
@@ -192,6 +198,8 @@
 			mainGroup = B3188D9527FDC1A7003C403B;
 			packageReferences = (
 				B3A6626F27FF15F20014E82E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B3B0C90E2810281300BF71CF /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				B3B0C9112810295500BF71CF /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = B3188D9F27FDC1A7003C403B /* Products */;
 			projectDirPath = "";
@@ -445,6 +453,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		B3B0C90E2810281300BF71CF /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		B3B0C9112810295500BF71CF /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -452,6 +476,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B3A6626F27FF15F20014E82E /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		B3B0C90F2810281300BF71CF /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3B0C90E2810281300BF71CF /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		B3B0C9122810295500BF71CF /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3B0C9112810295500BF71CF /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
