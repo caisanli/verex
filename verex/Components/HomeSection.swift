@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct HomeSection: View {
-    let list: [Topic]
+    var list: [Topic]
     var body: some View {
         ScrollView {
-            
+            if (list.count == 0) {
+                Label("无数据", systemImage: "tray")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+            }
+            ForEach(list) { topic in
+                HomeNodeTopic(topic: topic)
+            }
         }
     }
 }
