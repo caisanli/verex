@@ -76,7 +76,6 @@ let IndexTabData: [IndexTabItem] = [
     IndexTabItem(IndexTabEnum.jobs),
     IndexTabItem(IndexTabEnum.deals),
     IndexTabItem(IndexTabEnum.city),
-    IndexTabItem(IndexTabEnum.city),
     IndexTabItem(IndexTabEnum.qna),
     IndexTabItem(IndexTabEnum.hot),
     IndexTabItem(IndexTabEnum.r2),
