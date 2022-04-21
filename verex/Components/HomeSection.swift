@@ -15,6 +15,7 @@ struct HomeSection: View {
                 Label("无数据", systemImage: "tray")
                     .font(.headline)
                     .foregroundColor(.gray)
+                    .padding([.top], 100)
             }
             ForEach(list) { topic in
                 HomeNodeTopic(topic: topic)
