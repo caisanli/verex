@@ -25,7 +25,7 @@ struct HomeNodeTabs: View {
                     let color: Color = isActive ? .primary : .secondary
                     Text(tab.title)
                         .foregroundColor(color)
-                        .font(.subheadline)
+                        .font(.headline)
                         .tag(tab.name)
                         .onTapGesture {
                             onTapTab(tab: tab)

@@ -38,7 +38,7 @@ struct HomeNodeTopic: View {
                     
                     Text(topic.node.title)
                         .font(.footnote)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.white)
                         .background(.gray)
                         .cornerRadius(2)
                     
