@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeNodeTopic: View {
+    @State private var isActive: Bool = false
     let topic: Topic
     var body: some View {
         HStack(alignment: .top) {
@@ -60,6 +61,15 @@ struct HomeNodeTopic: View {
                 
                 // 分割线
                 Divider()
+            }
+            .onTapGesture {
+                self.isActive = true
+            }
+            
+            NavigationLink(isActive: $isActive) {
+                TopicView(topic: topic)
+            } label: {
+                EmptyView()
             }
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
