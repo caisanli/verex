@@ -18,18 +18,22 @@ struct ContentView: View {
     @State var section = TabEnum.index
     
     var body: some View {
-        TabView(selection: $section) {
-            HomeView().tabItem {
-                Image(systemName: "house")
-            }.tag(TabEnum.index)
-            
-            NodesView().tabItem {
-                Image(systemName: "square.grid.2x2")
-            }.tag(TabEnum.nodes)
-            
-            UserView().tabItem {
-                Image(systemName: "person")
-            }.tag(TabEnum.user)
+        NavigationView {
+            TabView(selection: $section) {
+                HomeView().tabItem {
+                    Image(systemName: "house")
+                }
+                .tag(TabEnum.index)
+                .navigationBarHidden(true)
+                
+                NodesView().tabItem {
+                    Image(systemName: "square.grid.2x2")
+                }.tag(TabEnum.nodes)
+                
+                UserView().tabItem {
+                    Image(systemName: "person")
+                }.tag(TabEnum.user)
+            }
         }
     }
 }
