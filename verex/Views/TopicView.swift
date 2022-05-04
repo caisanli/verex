@@ -10,7 +10,8 @@ import SwiftUI
 struct TopicView: View {
     @State var topic: Topic
     var body: some View {
-        Text("当前主题ID：\(topic.id)")
+//        Text("当前主题ID：\(topic.id)")
+        TopicInfo(topic: topic)
     }
 }
 
