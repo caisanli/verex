@@ -37,12 +37,7 @@ struct HomeNodeTopic: View {
                     // 间隔
                     Spacer()
                     
-                    Text(topic.node.title)
-                        .font(.footnote)
-                        .foregroundColor(.white)
-                        .background(.gray)
-                        .cornerRadius(2)
-                    
+                    NodeTag(tag: topic.node.title)
                 }
                 .foregroundColor(.secondary)
                 .font(.footnote)
@@ -54,7 +49,7 @@ struct HomeNodeTopic: View {
                     Spacer()
                     
                     // 距离当前时间多久
-                    Text("几秒前")
+                    HowLongAgo(time: topic.lastTouched)
                 }
                 .foregroundColor(.gray)
                 .font(.footnote)
@@ -68,11 +63,23 @@ struct HomeNodeTopic: View {
             
             NavigationLink(isActive: $isActive) {
                 TopicView(topic: topic)
+                    // 这里设置导航栏标题
+                    .navigationTitle("主题详情")
+                    // 自定义导航栏右侧按钮
+                    .toolbar(content: {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Image(systemName: "ellipsis")
+                        }
+                    })
+                    .navigationBarTitleDisplayMode(.inline)
             } label: {
                 EmptyView()
             }
+            
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
+        // 这里设置返回按钮的文字信息
+        .navigationTitle("")
     }
     
     
