@@ -10,10 +10,13 @@ import WebKit
 import SwiftUI
 
 struct HTMLStringView: UIViewRepresentable {
+    @Binding var dynamicHeight: CGFloat
     let htmlContent: String
 
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+        let webview = WKWebView();
+        webview.scrollView.bounces = false
+        return webview
     }
 
     func updateUIView(_ uiView: WKWebView, context: Context) {
@@ -23,7 +26,7 @@ struct HTMLStringView: UIViewRepresentable {
             if complete != nil {
                 uiView.evaluateJavaScript("document.body.scrollHeight", completionHandler: { (result, _) in
                     if let height = result as? CGFloat {
-                        print(height)
+                        dynamicHeight = height;
                     }
                 })
             }

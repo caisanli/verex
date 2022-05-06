@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TopicInfo: View {
+    @State private var webViewHeight: CGFloat = .zero
     var topic: Topic
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,7 +27,6 @@ struct TopicInfo: View {
                         Text(topic.member.username)
                         NodeTag(tag: topic.node.title)
                     }
-//                    .padding([.bottom], 4)
                     // 时间、点击数、收藏数
                     HStack {
                         HowLongAgo(time: topic.lastTouched)
@@ -36,7 +36,8 @@ struct TopicInfo: View {
             // 主题标题
             Text(topic.title).fontWeight(.medium)
             // 主题内容
-            HTMLStringView(htmlContent: topic.contentRendered)
+            HTMLStringView(dynamicHeight: $webViewHeight, htmlContent: topic.contentRendered)
+                .frame(height: webViewHeight)
         }
         .padding()
     }

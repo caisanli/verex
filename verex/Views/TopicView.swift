@@ -11,7 +11,9 @@ struct TopicView: View {
     @State var topic: Topic
     var body: some View {
 //        Text("当前主题ID：\(topic.id)")
-        TopicInfo(topic: topic)
+        ScrollView() {
+            TopicInfo(topic: topic)
+        }
     }
 }
 
