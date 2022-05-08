@@ -94,10 +94,23 @@ class APIS {
     //  username 用户名称
     // }
     static let GET_TOPICES = "\(HOST_URL)/topics/show.json"
+    
+    // 根据主题ID获取回复列表
+    // method: GET
+    // params: {
+    //  topic_id 主题id
+    //  page 当前页
+    // }
+    static let GET_REPILES = "\(HOST_URL)/replies/show.json"
 }
 
 struct GET_TOPICES_PARAMS: Codable {
     var node_id: Int?
     var node_name: String?
     var username: String?
+}
+
+struct GET_REPILES_PARAMS: Codable {
+    var topic_id: Int?
+    var page: Int?
 }

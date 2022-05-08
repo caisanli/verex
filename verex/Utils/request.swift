@@ -28,6 +28,25 @@ class RequestManager {
             }
     }
     
+    
+    /// 获取主题下的回复列表
+    /// - Parameters:
+    ///   - params: GET_TOPICES_PARAMS
+    ///   - complate: 回调函数
+    static func getRelipes(params: GET_REPILES_PARAMS, complate: ((_ result: [Replies]) -> Void)?) {
+        AF.request(APIS.GET_REPILES, method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default, headers: BaseHeaders)
+            .validate()
+            .responseDecodable(of: [Replies].self) { response in
+                switch response.result {
+                case .success(let value):
+                    complate?(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
     /// 根据节点name获取主题列表
     /// - Parameters:
     ///   - name: 节点 name
@@ -48,4 +67,5 @@ class RequestManager {
             }
         }
     }
+    
 }
