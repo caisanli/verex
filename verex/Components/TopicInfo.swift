@@ -11,7 +11,7 @@ struct TopicInfo: View {
     @State private var webViewHeight: CGFloat = .zero
     var topic: Topic
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 // 用户头像
                 AsyncImage(url: topic.member.avatarNormal) { image in
@@ -38,6 +38,8 @@ struct TopicInfo: View {
             // 主题内容
             HTMLStringView(dynamicHeight: $webViewHeight, htmlContent: topic.contentRendered)
                 .frame(height: webViewHeight)
+            // 分割线
+            Divider()
         }
         .padding()
     }
