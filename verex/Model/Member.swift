@@ -9,7 +9,7 @@ import Foundation
 
 
 /// 用户信息
-struct Member: Identifiable, Codable {
+struct Member: Hashable, Identifiable, Codable {
     var id: Int
     var username: String
     var url: String
