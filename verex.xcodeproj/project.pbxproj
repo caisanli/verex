@@ -33,6 +33,9 @@
 		B3D890DE280C2276008DA530 /* HomeNodeTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D890DD280C2276008DA530 /* HomeNodeTopic.swift */; };
 		B3EA221D2808424D009D4DCF /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA221C2808424D009D4DCF /* HomeSection.swift */; };
 		B3EA221F28084638009D4DCF /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA221E28084638009D4DCF /* Topic.swift */; };
+		B3F6FFB92826A4C900460695 /* Replies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6FFB82826A4C900460695 /* Replies.swift */; };
+		B3F6FFBB2826AB5B00460695 /* TopicReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6FFBA2826AB5B00460695 /* TopicReplies.swift */; };
+		B3F6FFBD2827576000460695 /* HTMLLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6FFBC2827576000460695 /* HTMLLabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		B3D890DD280C2276008DA530 /* HomeNodeTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNodeTopic.swift; sourceTree = "<group>"; };
 		B3EA221C2808424D009D4DCF /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		B3EA221E28084638009D4DCF /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		B3F6FFB82826A4C900460695 /* Replies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Replies.swift; sourceTree = "<group>"; };
+		B3F6FFBA2826AB5B00460695 /* TopicReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicReplies.swift; sourceTree = "<group>"; };
+		B3F6FFBC2827576000460695 /* HTMLLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLLabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 				B3EA221E28084638009D4DCF /* Topic.swift */,
 				B3D890DB280C0E84008DA530 /* ResponeseData.swift */,
 				B3B1805E280D98DA009B6787 /* Member.swift */,
+				B3F6FFB82826A4C900460695 /* Replies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +165,8 @@
 				B30891002822AD6200A3D528 /* HTMLStringView.swift */,
 				B30891022822BCE300A3D528 /* NodeTag.swift */,
 				B30891042822BDA800A3D528 /* HowLongAgo.swift */,
+				B3F6FFBA2826AB5B00460695 /* TopicReplies.swift */,
+				B3F6FFBC2827576000460695 /* HTMLLabelView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -250,10 +259,13 @@
 				B3B5E4482805BFA20096AE08 /* HomeHead.swift in Sources */,
 				B3B5E444280465560096AE08 /* Node.swift in Sources */,
 				B3A6627527FF25710014E82E /* api.swift in Sources */,
+				B3F6FFBB2826AB5B00460695 /* TopicReplies.swift in Sources */,
 				B3BAB13D2802CE3E00224AB9 /* HomeView.swift in Sources */,
 				B3D890DC280C0E84008DA530 /* ResponeseData.swift in Sources */,
+				B3F6FFB92826A4C900460695 /* Replies.swift in Sources */,
 				B357F797281183D80015BB57 /* TopicView.swift in Sources */,
 				B30891032822BCE300A3D528 /* NodeTag.swift in Sources */,
+				B3F6FFBD2827576000460695 /* HTMLLabelView.swift in Sources */,
 				B3EA221F28084638009D4DCF /* Topic.swift in Sources */,
 				B3B5E44628046FCC0096AE08 /* IndexTab.swift in Sources */,
 				B3D890DE280C2276008DA530 /* HomeNodeTopic.swift in Sources */,
