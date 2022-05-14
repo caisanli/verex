@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "atributika",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/psharanda/Atributika.git",
+      "state" : {
+        "revision" : "d018897afbd55d9065ef859650585bac890ada7e",
+        "version" : "4.10.1"
+      }
+    },
+    {
       "identity" : "swiftsoup",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scinfu/SwiftSoup.git",
