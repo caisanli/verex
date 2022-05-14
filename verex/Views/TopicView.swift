@@ -20,7 +20,7 @@ struct TopicView: View {
             ForEach(0..<list.count, id: \.self) { index in
                 TopicReplies(replies: list[index], index: index)
             }
-            .padding()
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 8, trailing: 16))
         }
         .onAppear {
             params.page = 1
