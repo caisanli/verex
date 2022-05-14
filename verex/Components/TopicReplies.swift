@@ -11,7 +11,7 @@ struct TopicReplies: View {
     var replies: Replies
     var index: Int
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             // 头像
             AsyncImage(url: replies.member.avatarNormal) { image in
                 image.resizable()
@@ -20,7 +20,7 @@ struct TopicReplies: View {
             }
             .frame(width: 40, height: 40)
             
-            VStack {
+            VStack(spacing: 4) {
                 //
                 HStack {
                     // 用户名称
@@ -34,7 +34,8 @@ struct TopicReplies: View {
                     Text("#\(index)")
                 }
                 // 回复内容
-//                HTMLLabelView(htmlContent: replies.contentRendered)
+                RichText { replies.contentRendered }
+                    .padding([.bottom], 8)
                 // 分割线
                 Divider()
             }
