@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import SwiftSoup
 
 struct TopicInfo: View {
-    @State private var webViewHeight: CGFloat = .zero
+    @State var rendered: Bool = false
     var topic: Topic
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 // 用户头像
                 AsyncImage(url: topic.member.avatarNormal) { image in
                     image.resizable()
+                        .cornerRadius(4)
                 } placeholder: {
                     ProgressView()
                 }
@@ -36,8 +39,7 @@ struct TopicInfo: View {
             // 主题标题
             Text(topic.title).fontWeight(.medium)
             // 主题内容
-            HTMLStringView(dynamicHeight: $webViewHeight, htmlContent: topic.contentRendered)
-                .frame(height: webViewHeight)
+            HtmlView(html: topic.contentRendered, rendered: $rendered)
             // 分割线
             Divider()
         }
