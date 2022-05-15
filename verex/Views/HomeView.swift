@@ -43,7 +43,6 @@ struct HomeView: View {
     func query() {
         RequestManager.queryTopics(params: self.params) { result in
             self.list = result
-            print(self.list.count)
         }
     }
 }
