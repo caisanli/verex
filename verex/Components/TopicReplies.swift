@@ -15,6 +15,7 @@ struct TopicReplies: View {
             // 头像
             AsyncImage(url: replies.member.avatarNormal) { image in
                 image.resizable()
+                    .cornerRadius(4)
             } placeholder: {
                 ProgressView()
             }

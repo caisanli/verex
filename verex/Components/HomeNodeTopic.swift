@@ -15,6 +15,7 @@ struct HomeNodeTopic: View {
             // 用户头像
             AsyncImage(url: topic.member.avatarNormal) { image in
                 image.resizable()
+                    .cornerRadius(4)
             } placeholder: {
                 ProgressView()
             }
