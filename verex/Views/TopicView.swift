@@ -18,7 +18,9 @@ struct TopicView: View {
             TopicInfo(topic: topic)
             // 主题回复列表
             ForEach(0..<list.count, id: \.self) { index in
-                TopicReplies(replies: list[index], index: index)
+                let replies = list[index]
+                let isOwner = replies.memberId == topic.member.id
+                TopicReplies(replies: replies, index: index, isOwner: isOwner)
             }
             .padding(EdgeInsets(top: 0, leading: 16, bottom: 8, trailing: 16))
         }
