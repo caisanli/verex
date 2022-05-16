@@ -11,8 +11,9 @@ struct NodeTag: View {
     let tag: String
     var body: some View {
         Text(tag)
-            .font(.footnote)
+            .font(.system(size: 12))
             .foregroundColor(.white)
+            .padding(2)
             .background(.gray)
             .cornerRadius(2)
     }
