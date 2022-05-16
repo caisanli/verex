@@ -42,6 +42,16 @@ struct TopicInfo: View {
             HtmlView(html: topic.contentRendered, rendered: $rendered)
             // 分割线
             Divider()
+            
+            HStack {
+                // 共多少条回复
+                Text("\(topic.replies)条回复")
+                    .font(.subheadline)
+            }
+            
+            // 分割线
+            Divider()
+            
         }
         .padding()
     }
