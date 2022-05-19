@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30498E02833D5DF00C23E3B /* TopicFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30498DF2833D5DF00C23E3B /* TopicFooter.swift */; };
 		B30891012822AD6200A3D528 /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30891002822AD6200A3D528 /* HTMLStringView.swift */; };
 		B30891032822BCE300A3D528 /* NodeTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30891022822BCE300A3D528 /* NodeTag.swift */; };
 		B30891052822BDA800A3D528 /* HowLongAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30891042822BDA800A3D528 /* HowLongAgo.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B30498DF2833D5DF00C23E3B /* TopicFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicFooter.swift; sourceTree = "<group>"; };
 		B30891002822AD6200A3D528 /* HTMLStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLStringView.swift; sourceTree = "<group>"; };
 		B30891022822BCE300A3D528 /* NodeTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTag.swift; sourceTree = "<group>"; };
 		B30891042822BDA800A3D528 /* HowLongAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowLongAgo.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				B30891042822BDA800A3D528 /* HowLongAgo.swift */,
 				B3F6FFBA2826AB5B00460695 /* TopicReplies.swift */,
 				B3653239282E4C350043C9DD /* RichText.swift */,
+				B30498DF2833D5DF00C23E3B /* TopicFooter.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				B3BAB13F2802CE4B00224AB9 /* NodesView.swift in Sources */,
 				B3188DA427FDC1A7003C403B /* ContentView.swift in Sources */,
+				B30498E02833D5DF00C23E3B /* TopicFooter.swift in Sources */,
 				B3EA221D2808424D009D4DCF /* HomeSection.swift in Sources */,
 				B30891052822BDA800A3D528 /* HowLongAgo.swift in Sources */,
 				B3188DA227FDC1A7003C403B /* verexApp.swift in Sources */,
