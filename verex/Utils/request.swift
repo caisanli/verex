@@ -7,9 +7,35 @@
 
 import Foundation
 import Alamofire
+import SwiftSoup
 
 class RequestManager {
     
+    static func parse(_ html: String) {
+        do {
+            let result = try SwiftSoup.parse(html)
+            print(result)
+        } catch {
+            print("error：")
+            print(error)
+        }
+    }
+    
+    /// 根据 tab 查询对应主题列表
+    /// - Parameters:
+    ///   - params: GET_TAB_REPILES_PARAMS
+    ///   - complate: 查询成功的回调函数
+    static func queryTopicsByTab(params: GET_TAB_REPILES_PARAMS, complate: ((_ result: [Any]) -> Void)? = nil) {
+        AF.request(APIS.GET_TAB_TOPICES, method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default)
+            .responseString { response in
+                switch response.result {
+                case .success(let result):
+                    parse(result)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
     
     /// 获取主题列表
     /// - Parameters:

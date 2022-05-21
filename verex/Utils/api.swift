@@ -103,6 +103,14 @@ class APIS {
     //  page 当前页
     // }
     static let GET_REPILES = "\(BASE_API)/replies/show.json"
+    
+    // ---- GET_HTML
+    // 根据 tab 获取主题列表
+    // method: GET
+    // params: {
+    //  tab 节点名
+    // }
+    static let GET_TAB_TOPICES = "\(BASE_URL)"
 }
 
 struct GET_TOPICES_PARAMS: Codable {
@@ -114,4 +122,8 @@ struct GET_TOPICES_PARAMS: Codable {
 struct GET_REPILES_PARAMS: Codable {
     var topic_id: Int?
     var page: Int?
+}
+
+struct GET_TAB_REPILES_PARAMS: Codable {
+    var tab: String
 }
