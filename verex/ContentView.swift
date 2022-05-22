@@ -28,12 +28,18 @@ struct ContentView: View {
                 
                 NodesView().tabItem {
                     Image(systemName: "square.grid.2x2")
-                }.tag(TabEnum.nodes)
+                }
+                .tag(TabEnum.nodes)
+                .navigationTitle("节点信息")
+
                 
                 UserView().tabItem {
                     Image(systemName: "person")
-                }.tag(TabEnum.user)
+                }
+                .tag(TabEnum.user)
+                .navigationTitle("用户信息")
             }
+            .id(section)
         }
     }
 }
