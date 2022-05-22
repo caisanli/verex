@@ -104,6 +104,14 @@ class APIS {
     // }
     static let GET_REPILES = "\(BASE_API)/replies/show.json"
     
+    
+    /// 获取节点信息
+    /// method: GET
+    /// params: {
+    ///    name 节点 name
+    /// }
+    static let GET_NODE_INFO = "\(BASE_API)/nodes/show.json"
+    
     // ---- GET_HTML
     // 根据 tab 获取主题列表
     // method: GET
@@ -111,6 +119,7 @@ class APIS {
     //  tab 节点名
     // }
     static let GET_TAB_TOPICES = "\(BASE_URL)"
+
 }
 
 struct GET_TOPICES_PARAMS: Codable {
@@ -126,4 +135,8 @@ struct GET_REPILES_PARAMS: Codable {
 
 struct GET_TAB_REPILES_PARAMS: Codable {
     var tab: String
+}
+
+struct GET_NODE_INFO_PARAMS: Codable {
+    var name: String
 }

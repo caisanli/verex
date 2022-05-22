@@ -29,6 +29,24 @@ class RequestManager {
     }
     
     
+    /// 获取节点信息
+    /// - Parameters:
+    ///   - params: GET_NODE_INFO_PARAMS
+    ///   - complate: 查询成功回调函数
+    static func getNodeInfo(params: GET_NODE_INFO_PARAMS, complate: ((_ result: Node) -> Void)? = nil) {
+        AF.request(APIS.GET_NODE_INFO, method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default)
+            .validate()
+            .responseDecodable(of: Node.self) { response in
+                switch response.result {
+                case .success(let value):
+                    complate?(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
     /// 获取节点导航
     /// - Parameter complate: 查询成功回调函数
     static func getNodeNavigate(complate: ((_ result: NodeNavigateInfo) -> Void)? = nil) {

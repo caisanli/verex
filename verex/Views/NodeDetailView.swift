@@ -9,8 +9,22 @@ import SwiftUI
 
 struct NodeDetailView: View {
     var nodeName: String;
+    @State var info: Node = Node()
     var body: some View {
-        Text("这是\(nodeName)")
+        VStack {
+            
+        }
+        .onAppear {
+            getInfo()
+        }
+    }
+    
+    /// 获取节点信息
+    func getInfo() {
+        let params = GET_NODE_INFO_PARAMS(name: nodeName)
+        RequestManager.getNodeInfo(params: params) { info in
+            self.info = info
+        }
     }
 }
 
