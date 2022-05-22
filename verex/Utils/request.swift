@@ -9,16 +9,39 @@ import Foundation
 import Alamofire
 import SwiftSoup
 
+protocol HtmlParsable {
+    init?(_ html: Element?)
+    init()
+}
+
 class RequestManager {
     
-    static func parse(_ html: String) {
+    static func parse<T: HtmlParsable>(_ html: String) -> T {
         do {
             let result = try SwiftSoup.parse(html)
-            print(result)
+            let data = T(result) ?? nil
+            return data!;
         } catch {
             print("error：")
             print(error)
+            return T()
         }
+    }
+    
+    
+    /// 获取节点导航
+    /// - Parameter complate: 查询成功回调函数
+    static func getNodeNavigate(complate: ((_ result: NodeNavigateInfo) -> Void)? = nil) {
+        AF.request(BASE_URL)
+            .responseString { response in
+                switch response.result {
+                case .success(let result):
+                    let data:NodeNavigateInfo = RequestManager.parse(result)
+                    complate?(data)
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
     
     /// 根据 tab 查询对应主题列表
@@ -30,7 +53,7 @@ class RequestManager {
             .responseString { response in
                 switch response.result {
                 case .success(let result):
-                    parse(result)
+                    print(result)
                 case .failure(let error):
                     print(error)
                 }
