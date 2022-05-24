@@ -79,8 +79,6 @@ struct HomeNodeTopic: View {
             
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
-        // 这里设置返回按钮的文字信息
-        .navigationTitle("")
     }
     
     
