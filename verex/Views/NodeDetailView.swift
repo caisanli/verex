@@ -16,12 +16,7 @@ struct NodeDetailView: View {
         ScrollView {
             HStack {
                 HStack {
-                    AsyncImage(url: URL(string: info.avatar_large)) { image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: 60, height: 60)
+                    AvatarView(url: info.avatar_large, size: 60)
                     VStack(alignment: .leading) {
                         HStack {
                             Text("主题数：\(info.topics)")

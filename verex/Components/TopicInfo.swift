@@ -16,13 +16,7 @@ struct TopicInfo: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
                 // 用户头像
-                AsyncImage(url: topic.member.avatarNormal) { image in
-                    image.resizable()
-                        .cornerRadius(4)
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: 40, height: 40)
+                AvatarView(url: topic.member.avatarNormal)
                 //
                 VStack(alignment: .leading, spacing: 4) {
                     // 用户名和节点名称

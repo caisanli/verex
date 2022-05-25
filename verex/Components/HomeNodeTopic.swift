@@ -13,13 +13,7 @@ struct HomeNodeTopic: View {
     var body: some View {
         HStack(alignment: .top) {
             // 用户头像
-            AsyncImage(url: topic.member.avatarNormal) { image in
-                image.resizable()
-                    .cornerRadius(4)
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: 40, height: 40)
+            AvatarView(url: topic.member.avatarNormal)
             
             VStack(alignment: .leading, spacing: 8) {
                 // 主题标题

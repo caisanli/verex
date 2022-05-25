@@ -36,6 +36,7 @@
 		B3B5E444280465560096AE08 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5E443280465560096AE08 /* Node.swift */; };
 		B3B5E44628046FCC0096AE08 /* IndexTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5E44528046FCC0096AE08 /* IndexTab.swift */; };
 		B3B5E4482805BFA20096AE08 /* HomeHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5E4472805BFA20096AE08 /* HomeHead.swift */; };
+		B3B96652283E66F6000C041F /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B96651283E66F6000C041F /* AvatarView.swift */; };
 		B3BAB13D2802CE3E00224AB9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAB13C2802CE3E00224AB9 /* HomeView.swift */; };
 		B3BAB13F2802CE4B00224AB9 /* NodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAB13E2802CE4B00224AB9 /* NodesView.swift */; };
 		B3BAB1412802CE6E00224AB9 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAB1402802CE6E00224AB9 /* UserView.swift */; };
@@ -73,6 +74,7 @@
 		B3B5E443280465560096AE08 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		B3B5E44528046FCC0096AE08 /* IndexTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTab.swift; sourceTree = "<group>"; };
 		B3B5E4472805BFA20096AE08 /* HomeHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHead.swift; sourceTree = "<group>"; };
+		B3B96651283E66F6000C041F /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		B3BAB13C2802CE3E00224AB9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B3BAB13E2802CE4B00224AB9 /* NodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesView.swift; sourceTree = "<group>"; };
 		B3BAB1402802CE6E00224AB9 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				B3F6FFBA2826AB5B00460695 /* TopicReplies.swift */,
 				B3653239282E4C350043C9DD /* RichText.swift */,
 				B30498DF2833D5DF00C23E3B /* TopicFooter.swift */,
+				B3B96651283E66F6000C041F /* AvatarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				B346D5B4282F99A5006280F4 /* String.swift in Sources */,
 				B30891032822BCE300A3D528 /* NodeTag.swift in Sources */,
 				B3EA221F28084638009D4DCF /* Topic.swift in Sources */,
+				B3B96652283E66F6000C041F /* AvatarView.swift in Sources */,
 				B3B5E44628046FCC0096AE08 /* IndexTab.swift in Sources */,
 				B3D890DE280C2276008DA530 /* HomeNodeTopic.swift in Sources */,
 				B3B5190A2830A93B002C4C29 /* Bundle.swift in Sources */,
