@@ -21,6 +21,7 @@
 		B359D09D2816D469004F0D70 /* TopicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B359D09C2816D469004F0D70 /* TopicInfo.swift */; };
 		B365323A282E4C350043C9DD /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3653239282E4C350043C9DD /* RichText.swift */; };
 		B365323D282E50090043C9DD /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = B365323C282E50090043C9DD /* Atributika */; };
+		B38924562843AFB3000BA2EE /* NodeNavigateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38924552843AFB3000BA2EE /* NodeNavigateVM.swift */; };
 		B3A6627127FF15F20014E82E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B3A6627027FF15F20014E82E /* Alamofire */; };
 		B3A6627327FF180B0014E82E /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A6627227FF180B0014E82E /* request.swift */; };
 		B3A6627527FF25710014E82E /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A6627427FF25710014E82E /* api.swift */; };
@@ -64,6 +65,7 @@
 		B357F796281183D80015BB57 /* TopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		B359D09C2816D469004F0D70 /* TopicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicInfo.swift; sourceTree = "<group>"; };
 		B3653239282E4C350043C9DD /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
+		B38924552843AFB3000BA2EE /* NodeNavigateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeNavigateVM.swift; sourceTree = "<group>"; };
 		B3A6627227FF180B0014E82E /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
 		B3A6627427FF25710014E82E /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		B3AE4A1F2839B8F100F443F7 /* NodeNavigate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeNavigate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		B3188DA027FDC1A7003C403B /* verex */ = {
 			isa = PBXGroup;
 			children = (
+				B38924542843AF44000BA2EE /* ViewModel */,
 				B346D5B2282F9979006280F4 /* Extentions */,
 				B3188DB227FDC7E6003C403B /* Components */,
 				B3188DB127FDC73B003C403B /* Utils */,
@@ -208,6 +211,14 @@
 				B3B519092830A93B002C4C29 /* Bundle.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		B38924542843AF44000BA2EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B38924552843AFB3000BA2EE /* NodeNavigateVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B3A6DC98282F90550010FECF /* Frameworks */ = {
@@ -311,6 +322,7 @@
 				B30891052822BDA800A3D528 /* HowLongAgo.swift in Sources */,
 				B3188DA227FDC1A7003C403B /* verexApp.swift in Sources */,
 				B3B5E4482805BFA20096AE08 /* HomeHead.swift in Sources */,
+				B38924562843AFB3000BA2EE /* NodeNavigateVM.swift in Sources */,
 				B3B5E444280465560096AE08 /* Node.swift in Sources */,
 				B3A6627527FF25710014E82E /* api.swift in Sources */,
 				B3F6FFBB2826AB5B00460695 /* TopicReplies.swift in Sources */,

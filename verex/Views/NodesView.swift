@@ -9,24 +9,21 @@ import SwiftUI
 import WrappingHStack
 
 struct NodesView: View {
-    @State var info: NodeNavigateInfo = NodeNavigateInfo()
-    @State var nodes: [NodeNavigateItem] = []
-    @State var active: String = ""
+    @EnvironmentObject var store: NodeNavigateVM
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
-                ForEach(info.items) { item in
+                ForEach(store.items) { item in
                     Text(item.name)
                         .padding(.vertical, 4)
                         .font(.system(size: 14))
                         .foregroundColor(
-                            active != item.id
+                            store.active != item.id
                             ? Color(red: 51/255, green: 51/255, blue: 51/255)
                             : .blue
                         )
                         .onTapGesture {
-                            self.active = item.id
-                            self.nodes = item.children ?? []
+                            store.setActive(item)
                         }
                     Divider()
                 }
@@ -36,7 +33,7 @@ struct NodesView: View {
             
             Divider()
             ScrollView {
-                WrappingHStack(nodes, lineSpacing: CGFloat(8)) { node in
+                WrappingHStack(store.nodes, lineSpacing: CGFloat(8)) { node in
                     NavigationLink {
                         NodeDetailView(nodeName: node.id)
                             // 这里设置导航栏标题
@@ -63,15 +60,7 @@ struct NodesView: View {
             Spacer()
         }
         .onAppear {
-            RequestManager.getNodeNavigate { result in
-                info = result
-                let nodes = info.items
-                if !nodes.isEmpty {
-                    let item = nodes[0]
-                    self.nodes = item.children!
-                    self.active = item.id
-                }
-            }
+            store.query()
         }
         
         

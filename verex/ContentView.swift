@@ -16,6 +16,7 @@ struct ContentView: View {
     }
     
     @State var section = TabEnum.index
+    @StateObject var nodeNavigateVM = NodeNavigateVM()
     
     var body: some View {
         NavigationView {
@@ -29,6 +30,7 @@ struct ContentView: View {
                 NodesView().tabItem {
                     Image(systemName: "square.grid.2x2")
                 }
+                .environmentObject(nodeNavigateVM)
                 .tag(TabEnum.nodes)
                 .navigationTitle("节点信息")
 
