@@ -18,7 +18,9 @@ struct HomeHead: View {
             
             HStack(alignment: .center) {
                 NavigationLink {
-                    Text("search")
+                    SearchView()
+                        .navigationTitle("搜索")
+                        .navigationBarTitleDisplayMode(.inline)
                 } label: {
                     Image(systemName: "magnifyingglass")
                 }
