@@ -59,6 +59,7 @@ struct NodesView: View {
             }
             Spacer()
         }
+        .padding()
         .onAppear {
             store.query()
         }
