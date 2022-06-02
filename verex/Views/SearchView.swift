@@ -10,7 +10,7 @@ import WrappingHStack
 
 struct SearchView: View {
     @State var text: String = ""
-    @State var list: [String] = ["caisanli", "wangwu", "didi", "七八七八", "午觉午觉", "节日快乐", "天池"]
+    @State var list: [String] = []
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -21,7 +21,9 @@ struct SearchView: View {
                 TextField("输入内容", text: $text)
                     .frame(height: 48)
                     .textFieldStyle(.plain)
-                
+                    .onSubmit {
+                        setHistory()
+                    }
             }
             
             Divider()
@@ -48,6 +50,23 @@ struct SearchView: View {
         }
         .padding()
         .padding(.top, 0)
+        .onAppear {
+            getHistory()
+        }
+    }
+    
+    func setHistory() {
+        let oldhistory: String = UserDefaultKeys.string(.searchHistory) ?? ""
+        let newHistory: String = "\(oldhistory)&\(self.text)"
+        UserDefaultKeys.set(value: newHistory, key: .searchHistory)
+        self.list.append(self.text)
+    }
+    
+    func getHistory() {
+        let history: String = UserDefaultKeys.string(.searchHistory) ?? ""
+        self.list = history.split(separator: "&").map({ item in
+            String(item)
+        })
     }
 }
 
