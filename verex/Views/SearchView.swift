@@ -9,21 +9,33 @@ import SwiftUI
 import WrappingHStack
 
 struct SearchView: View {
-    @State var text: String = ""
     @State var list: [String] = []
+    @State var type: String = "topic"
+    @State var params: SEARCH_PARAMS = SEARCH_PARAMS(q: "", from: 0, size: 10)
+    @State var hits: [SearchHit] = []
     var body: some View {
         VStack(alignment: .leading) {
+            // 搜索框
             HStack {
                 Image(systemName: "magnifyingglass")
                     .font(.system(size: 20))
                     .foregroundColor(.gray)
                 
-                TextField("输入内容", text: $text)
-                    .frame(height: 48)
+                TextField("输入内容", text: $params.q)
+                    .frame(height: 36)
                     .textFieldStyle(.plain)
                     .onSubmit {
-                        setHistory()
+                        search()
                     }
+            }
+            
+            // 搜索类型
+            HStack {
+                Picker("选择类型", selection: $type) {
+                    Text("主题").tag("topic")
+                    Text("节点").tag("node")
+                }
+                .pickerStyle(.segmented)
             }
             
             Divider()
@@ -44,6 +56,10 @@ struct SearchView: View {
                         .padding(.vertical, 4)
                         .background(.blue)
                         .cornerRadius(4)
+                        .onTapGesture {
+                            self.params.q = item
+                            self.search()
+                        }
                 }
                 
             }
@@ -55,11 +71,24 @@ struct SearchView: View {
         }
     }
     
+    func search() {
+        setHistory()
+        RequestManager.search(params: params) { result in
+            self.hits = result.hits
+        }
+    }
+    
     func setHistory() {
+        let text = params.q
+        
+        guard !self.list.contains(text) else {
+            return
+        }
+        
         let oldhistory: String = UserDefaultKeys.string(.searchHistory) ?? ""
-        let newHistory: String = "\(oldhistory)&\(self.text)"
+        let newHistory: String = "\(oldhistory)&\(text)"
         UserDefaultKeys.set(value: newHistory, key: .searchHistory)
-        self.list.append(self.text)
+        self.list.append(text)
     }
     
     func getHistory() {

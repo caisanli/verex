@@ -122,7 +122,6 @@ class RequestManager {
     static func getTopicsByNodeName(name: String, p: Int, complate: ((_ result: [Topic]) -> Void)?) {
         let url = APIS.GET_TOPICES.replacingOccurrences(of: "${node_name}", with: name);
         let parameters = ["p": p]
-        print("url：\(url)");
         AF.request(url, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default, headers: BaseHeaders)
             .validate()
             .responseDecodable(of: ResponeseData<[Topic]>.self) { response in
@@ -133,6 +132,24 @@ class RequestManager {
                 print(error)
             }
         }
+    }
+    
+    
+    /// 搜索
+    /// - Parameters:
+    ///   - params: 搜索参数 SEARCH_PARAMS
+    ///   - complate: 回调函数
+    static func search(params: SEARCH_PARAMS, complate: ((_ result: SearchResponse) -> Void)? = nil) {
+        AF.request(APIS.SEARCH, method: .get, parameters: params, encoder: .urlEncodedForm)
+            .validate()
+            .responseDecodable(of: SearchResponse.self) { response in
+                switch response.result {
+                case .success(let value):
+                    complate?(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
     
 }

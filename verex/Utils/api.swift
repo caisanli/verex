@@ -119,6 +119,17 @@ class APIS {
     //  tab 节点名
     // }
     static let GET_TAB_TOPICES = "\(BASE_URL)"
+    
+    
+    /// 搜索
+    /// method: GET
+    /// 见 https://github.com/bynil/sov2ex/blob/v2/API.md#搜索
+    /// params: {
+    ///   q 关键词
+    ///   from 从第几条搜索 默认0
+    ///   size 分页数
+    /// }
+    static let SEARCH = "https://www.sov2ex.com/api/search"
 
 }
 
@@ -139,4 +150,10 @@ struct GET_TAB_REPILES_PARAMS: Codable {
 
 struct GET_NODE_INFO_PARAMS: Codable {
     var name: String
+}
+
+struct SEARCH_PARAMS: Codable {
+    var q: String
+    var from: Int?
+    var size: Int?
 }
