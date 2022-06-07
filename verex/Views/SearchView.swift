@@ -11,8 +11,9 @@ import WrappingHStack
 struct SearchView: View {
     @State var list: [String] = []
     @State var type: String = "topic"
-    @State var params: SEARCH_PARAMS = SEARCH_PARAMS(q: "", from: 0, size: 10)
+    @State var params: SEARCH_PARAMS = SEARCH_PARAMS(q: "", from: 0, size: 20)
     @State var hits: [SearchHit] = []
+    @State var isSearch: Bool = false
     var body: some View {
         VStack(alignment: .leading) {
             // 搜索框
@@ -42,24 +43,40 @@ struct SearchView: View {
                 .padding(.bottom, 8)
             
             ScrollView {
-                VStack(alignment: .leading) {
-                    Text("搜索历史")
-                        .font(.system(size: 14))
-                        .foregroundColor(.gray)
+                if !isSearch {
+                    VStack(alignment: .leading) {
+                        Text("搜索历史")
+                            .font(.system(size: 14))
+                            .foregroundColor(.gray)
+                    }
+                    
+                    WrappingHStack(list, lineSpacing: 8) { item in
+                        Text(item)
+                            .font(.system(size: 14))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 4)
+                            .background(.blue)
+                            .cornerRadius(4)
+                            .onTapGesture {
+                                self.params.q = item
+                                self.search()
+                            }
+                    }
                 }
                 
-                WrappingHStack(list, lineSpacing: 8) { item in
-                    Text(item)
-                        .font(.system(size: 14))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 4)
-                        .background(.blue)
-                        .cornerRadius(4)
-                        .onTapGesture {
-                            self.params.q = item
-                            self.search()
-                        }
+                ForEach(hits, id: \.self._source.id) { hit in
+                    
+                    VStack {
+                        Text(hit._source.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 14))
+                        
+                        Divider()
+                            .padding(.bottom, 4)
+                        
+                    }
+        
                 }
                 
             }
@@ -74,6 +91,7 @@ struct SearchView: View {
     func search() {
         setHistory()
         RequestManager.search(params: params) { result in
+            self.isSearch = true
             self.hits = result.hits
         }
     }
