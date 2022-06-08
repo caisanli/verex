@@ -39,6 +39,9 @@ struct SearchView: View {
                     Text("节点").tag("node")
                 }
                 .pickerStyle(.segmented)
+                .onChange(of: type) { newValue in
+                    clean()
+                }
             }
             
             Divider()
@@ -100,6 +103,12 @@ struct SearchView: View {
         .onAppear {
             getHistory()
         }
+    }
+    
+    func clean() {
+        self.isSearch = false
+        self.hits = []
+        self.params.q = ""
     }
     
     func getTopic(id: Int) {
