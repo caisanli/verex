@@ -93,6 +93,7 @@ class APIS {
     //  node_id 节点id
     //  node_name 节点name
     //  username 用户名称
+    //  id 主题id
     // }
     static let GET_TOPICES = "\(BASE_API)/topics/show.json"
     
@@ -137,6 +138,7 @@ struct GET_TOPICES_PARAMS: Codable {
     var node_id: Int?
     var node_name: String?
     var username: String?
+    var id: Int?
 }
 
 struct GET_REPILES_PARAMS: Codable {

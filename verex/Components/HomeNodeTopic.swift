@@ -58,15 +58,6 @@ struct HomeNodeTopic: View {
             
             NavigationLink(isActive: $isActive) {
                 TopicView(topic: topic)
-                    // 这里设置导航栏标题
-                    .navigationTitle("主题详情")
-                    // 自定义导航栏右侧按钮
-                    .toolbar(content: {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Image(systemName: "ellipsis")
-                        }
-                    })
-                    .navigationBarTitleDisplayMode(.inline)
             } label: {
                 EmptyView()
             }

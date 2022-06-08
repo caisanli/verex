@@ -14,6 +14,8 @@ struct SearchView: View {
     @State var params: SEARCH_PARAMS = SEARCH_PARAMS(q: "", from: 0, size: 20)
     @State var hits: [SearchHit] = []
     @State var isSearch: Bool = false
+    @State var linkActive: Bool = false
+    @State var topic: Topic? = nil
     var body: some View {
         VStack(alignment: .leading) {
             // 搜索框
@@ -74,9 +76,21 @@ struct SearchView: View {
                         
                         Divider()
                             .padding(.bottom, 4)
-                        
+
+                    }
+                    .onTapGesture {
+                        self.getTopic(id: hit._source.id)
                     }
         
+                }
+                
+                NavigationLink(isActive: $linkActive) {
+                    if topic != nil {
+                        TopicView(topic: topic!)
+                    }
+                    
+                } label: {
+                    EmptyView()
                 }
                 
             }
@@ -85,6 +99,20 @@ struct SearchView: View {
         .padding(.top, 0)
         .onAppear {
             getHistory()
+        }
+    }
+    
+    func getTopic(id: Int) {
+        let params = GET_TOPICES_PARAMS(id: id)
+        RequestManager.queryTopics(params: params) { result in
+            guard result.count != 0 else {
+                print("没找到对应主题")
+                return
+            }
+            
+            self.topic = result[0]
+            
+            self.linkActive = true
         }
     }
     
