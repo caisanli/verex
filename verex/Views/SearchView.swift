@@ -16,6 +16,10 @@ struct SearchView: View {
     @State var isSearch: Bool = false
     @State var linkActive: Bool = false
     @State var topic: Topic? = nil
+    @State var nodes: [String] = []
+    @State var activeNode: String? = nil
+    @StateObject var store = NodeNavigateVM()
+    
     var body: some View {
         VStack(alignment: .leading) {
             // 搜索框
@@ -30,6 +34,12 @@ struct SearchView: View {
                     .onSubmit {
                         search()
                     }
+                
+                Image(systemName: "xmark.circle")
+                    .onTapGesture {
+                        self.clean()
+                    }
+                
             }
             
             // 搜索类型
@@ -70,26 +80,44 @@ struct SearchView: View {
                     }
                 }
                 
-                ForEach(hits, id: \.self._source.id) { hit in
-                    
-                    VStack {
-                        Text(hit._source.title)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.system(size: 14))
-                        
-                        Divider()
-                            .padding(.bottom, 4)
+                if type == "topic" {
+                    ForEach(hits, id: \.self._source.id) { hit in
+                        VStack {
+                            Text(hit._source.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.system(size: 14))
+                            
+                            Divider()
+                                .padding(.bottom, 4)
 
+                        }
+                        .onTapGesture {
+                            self.getTopic(id: hit._source.id)
+                        }
                     }
-                    .onTapGesture {
-                        self.getTopic(id: hit._source.id)
+                } else if type == "node" {
+                    ForEach(nodes, id: \.self) { node in
+                        VStack {
+                            Text(node)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.system(size: 14))
+                            
+                            Divider()
+                                .padding(.bottom, 4)
+
+                        }
+                        .onTapGesture {
+                            self.activeNode = node
+                            self.linkActive = true
+                        }
                     }
-        
                 }
                 
                 NavigationLink(isActive: $linkActive) {
                     if topic != nil {
                         TopicView(topic: topic!)
+                    } else if activeNode != nil {
+                        NodeDetailView(nodeName: activeNode!)
                     }
                     
                 } label: {
@@ -108,7 +136,9 @@ struct SearchView: View {
     func clean() {
         self.isSearch = false
         self.hits = []
+        self.nodes = []
         self.params.q = ""
+        self.topic = nil
     }
     
     func getTopic(id: Int) {
@@ -127,6 +157,34 @@ struct SearchView: View {
     
     func search() {
         setHistory()
+        switch self.type {
+        case "topic":
+            searchHits()
+            break;
+        case "node":
+            searchNode()
+            break;
+        default:
+            print("没有匹配")
+        }
+    }
+    
+    func searchNode() {
+        store.query {
+            self.isSearch = true
+            var nodes: [String] = []
+            store.items.forEach { item in
+                item.children?.forEach({ node in
+                    if node.name.contains(self.params.q) {
+                        nodes.append(node.name)
+                    }
+                })
+            }
+            self.nodes = nodes;
+        }
+    }
+    
+    func searchHits() {
         RequestManager.search(params: params) { result in
             self.isSearch = true
             self.hits = result.hits

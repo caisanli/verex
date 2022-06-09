@@ -12,16 +12,18 @@ class NodeNavigateVM: ObservableObject {
     @Published var nodes: [NodeNavigateItem] = []
     @Published var active: String = ""
     
-    func query() {
+    func query(complate: (() -> Void)? = nil) {
         // 如果不为空就不获取数据
         guard items.isEmpty else {
             self.setActive()
+            complate?()
             return
         }
         
         RequestManager.getNodeNavigate { result in
             let nodes = result.items
             self.items = nodes;
+            complate?()
             self.setActive()
         }
     }
