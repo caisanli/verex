@@ -15,7 +15,7 @@ struct AvatarView: View {
     var body: some View {
         KFImage.url(URL(string: url ?? ""))
             .placeholder {
-                ProgressView()
+                Image("default")
             }
             .fade(duration: 0.25)
             .resizable()
