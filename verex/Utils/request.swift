@@ -152,4 +152,35 @@ class RequestManager {
             }
     }
     
+    
+    /// 获取最新主题
+    /// - Parameter complate: 回调函数
+    static func getNew(complate: ((_ result: [Topic]) -> Void)? = nil) {
+        AF.request(APIS.GET_NEW, method: .get)
+            .responseDecodable(of: [Topic].self) { response in
+                switch response.result {
+                case .success(let value):
+                    complate?(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    /// 获取最热主题
+    /// - Parameter complate: 回调函数
+    static func getHot(complate: ((_ result: [Topic]) -> Void)? = nil) {
+        AF.request(APIS.GET_HOT, method: .get)
+            .responseDecodable(of: [Topic].self) { response in
+                switch response.result {
+                case .success(let value):
+                    complate?(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+//    static func get
+    
 }

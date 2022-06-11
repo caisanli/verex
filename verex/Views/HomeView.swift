@@ -41,8 +41,15 @@ struct HomeView: View {
     /// 查询主题列表
     /// - Parameter name: 节点的 name
     func query() {
-        RequestManager.queryTopics(params: self.params) { result in
-            self.list = result
+        switch self.tabIndex {
+        case .new:
+            RequestManager.getNew() { result in
+                self.list = result
+            }
+        case .hot:
+            RequestManager.getHot() { result in
+                self.list = result
+            }
         }
     }
 }

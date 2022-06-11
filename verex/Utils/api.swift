@@ -87,6 +87,15 @@ class APIS {
     
     // ------ API 1.0
     
+    /// 获取最新主题
+    /// method GET
+    static let GET_NEW = "\(BASE_API)/topics/latest.json"
+    
+    
+    /// 获取最热主题
+    /// method GET
+    static let GET_HOT = "\(BASE_API)/topics/hot.json"
+    
     // 根据参数获取主题列表
     // method: GET
     // params: {
