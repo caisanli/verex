@@ -47,6 +47,21 @@ class RequestManager {
     }
     
     
+    /// 获取登录页html
+    /// - Parameter complate: 成功回调函数
+    static func getLoginHtml(complate: ((_ result: String) -> Void)? = nil) {
+        AF.request(APIS.GET_LOGIN)
+            .responseString { response in
+                switch response.result {
+                case .success(let result):
+                    complate?(result)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
     /// 获取节点导航
     /// - Parameter complate: 查询成功回调函数
     static func getNodeNavigate(complate: ((_ result: NodeNavigateInfo) -> Void)? = nil) {

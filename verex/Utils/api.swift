@@ -10,6 +10,7 @@
 
 import Foundation
 import Alamofire
+import SwiftSoup
 
 // 基础地址
 let BASE_URL = "https://www.v2ex.com"
@@ -131,6 +132,11 @@ class APIS {
     static let GET_TAB_TOPICES = "\(BASE_URL)"
     
     
+    /// 获取登录页
+    /// method GET
+    static let GET_LOGIN = "\(BASE_URL)/signin"
+    
+    
     /// 搜索
     /// method: GET
     /// 见 https://github.com/bynil/sov2ex/blob/v2/API.md#搜索
@@ -167,4 +173,22 @@ struct SEARCH_PARAMS: Codable {
     var q: String
     var from: Int?
     var size: Int?
+}
+
+struct LOGIN_PARAMS_KEY: Codable {
+    var name: String = "" // 用户名
+    var password: String = "" // 密码
+    var once: String = "" // once
+    var code: String = "" // 验证码
+    
+    init(from html: String) {
+        do {
+            let doc = try SwiftSoup.parse(html)
+            let main = try doc.select("#Main")
+            
+            
+        } catch {
+            print(error)
+        }
+    }
 }
