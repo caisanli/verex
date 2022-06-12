@@ -30,102 +30,39 @@ struct UserView: View {
             .padding(.bottom)
                     
             VStack {
-                HStack(alignment: .top) {
-                    Image(systemName: "paperplane")
-                        
-                    VStack {
-                        HStack {
-                            Text("主题")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                        }
-                        Divider()
-                            .background(.white)
-                    }
+                UserListItem(icon: "paperplane", title: "主题") {
+                    Text("Test")
                 }
                 
-                HStack(alignment: .top) {
-                    Image(systemName: "bookmark")
-                    VStack {
-                        HStack {
-                            Text("收藏")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                        }
-                        
-                        Divider()
-                            .background(.white)
-                    }
+                UserListItem(icon: "bookmark", title: "收藏") {
+                    Text("Test")
                 }
-                .padding(.top, 8)
                 
-                HStack(alignment: .top) {
-                    Image(systemName: "heart")
-                    VStack {
-                        HStack {
-                            Text("关注")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                        }
-                        Divider()
-                            .background(.white)
-                    }
+                UserListItem(icon: "heart", title: "关注") {
+                    Text("Test")
                 }
-                .padding(.top, 8)
                 
-                HStack(alignment: .top) {
-                    Image(systemName: "clock")
-                    VStack {
-                        HStack {
-                            Text("最近浏览")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                        }
-                    }
+                UserListItem(icon: "clock", title: "最近浏览", isLast: true) {
+                    Text("Test")
                 }
-                .padding(.top, 8)
             }
-            
-            .padding()
+            .padding(.horizontal)
             .background(Color(red: 245/255, green: 249/255, blue: 255/255))
             .cornerRadius(4)
+            .padding(.bottom, 16)
             
             VStack {
-                HStack(alignment: .top) {
-                    Image(systemName: "gear")
-                        
-                    VStack {
-                        HStack {
-                            Text("设置")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                        }
-                        Divider()
-                            .background(.white)
-                    }
+                
+                UserListItem(icon: "gear", title: "设置") {
+                    Text("Test")
                 }
                 
-                HStack(alignment: .top) {
-                    Image(systemName: "info.circle")
-                        
-                    VStack {
-                        HStack {
-                            Text("关于")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                        }
-
-                    }
+                UserListItem(icon: "info.circle", title: "关于", isLast: true) {
+                    Text("Test")
                 }
-                .padding(.top, 8)
+                
             }
-            .padding()
+            .padding(.horizontal)
             .background(Color(red: 245/255, green: 249/255, blue: 255/255))
             .cornerRadius(4)
             
