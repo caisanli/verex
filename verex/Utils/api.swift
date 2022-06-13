@@ -180,13 +180,16 @@ struct LOGIN_PARAMS_KEY: Codable {
     var password: String = "" // 密码
     var once: String = "" // once
     var code: String = "" // 验证码
-    
+//    var next
     init(from html: String) {
         do {
             let doc = try SwiftSoup.parse(html)
             let main = try doc.select("#Main")
-            
-            
+            self.name = try main.select("input.sl[type=text]").attr("name")
+            self.password = try main.select("input[type=password]").attr("name")
+            self.once = try main.select("input[name=once]").attr("value")
+            self.code = try main.select("input[placeholder*=验证码]").attr("name")
+
         } catch {
             print(error)
         }
