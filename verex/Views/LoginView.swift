@@ -13,6 +13,7 @@ struct LoginView: View {
     @State private var code: String = ""
     @State private var once: String = ""
     @State private var codeImage: String = "https://www.v2ex.com/_captcha"
+    @State private var paramskey: LOGIN_PARAMS_KEY? = nil
     
     var body: some View {
         VStack {
@@ -38,7 +39,8 @@ struct LoginView: View {
                 HStack {
                     Spacer()
                     Button("登录") {
-                        print("登录")
+                        login()
+                        
                     }
                     .buttonStyle(.borderedProminent)
                     Spacer()
@@ -56,11 +58,27 @@ struct LoginView: View {
         }
     }
     
+    func login() {
+        print("登录")
+        guard paramskey != nil else {
+            print("没获取到 => paramskey")
+            return
+        }
+        
+        var form: [String:String] = [:]
+        form[paramskey!.name] = username
+        form[paramskey!.password] = password
+        form[paramskey!.code] = code
+        form["once"] = paramskey!.once
+        form["next"] = "/mission/daily"
+        print(form)
+        RequestManager.login(data: form)
+    }
+    
+    /// 获取登录参数的key
     func getLoginParamsKey() {
         RequestManager.getLoginHtml { html in
-            let paramsKey = LOGIN_PARAMS_KEY(from: html)
-//            paramsKey.code
-            
+            self.paramskey = LOGIN_PARAMS_KEY(from: html)
         }
     }
 }

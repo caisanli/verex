@@ -137,6 +137,10 @@ class APIS {
     static let GET_LOGIN = "\(BASE_URL)/signin"
     
     
+    /// 登录
+    /// method POST
+    static let POST_LOGIN = "\(BASE_URL)/signin"
+    
     /// 搜索
     /// method: GET
     /// 见 https://github.com/bynil/sov2ex/blob/v2/API.md#搜索

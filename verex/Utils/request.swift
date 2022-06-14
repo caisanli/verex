@@ -62,6 +62,25 @@ class RequestManager {
     }
     
     
+    /// 登录
+    /// - Parameters:
+    ///   - data: 参数
+    ///   - complate: 成功的回调函数
+    static func login(data: Any, complate: ((_ result: String) -> Void)? = nil) {
+        let headers: [String:String] = ["Referer": BASE_URL.appending("/signin")]
+        AF.request(APIS.POST_LOGIN, method: .post, parameters: data as! Parameters)
+            .responseString { response in
+//                print(response)
+                switch response.result {
+                case .success(let value):
+                    print(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
     /// 获取节点导航
     /// - Parameter complate: 查询成功回调函数
     static func getNodeNavigate(complate: ((_ result: NodeNavigateInfo) -> Void)? = nil) {
