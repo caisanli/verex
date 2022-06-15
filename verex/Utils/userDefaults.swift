@@ -11,6 +11,7 @@ import Foundation
 struct UserDefaultKeys {
     enum DefaultKeys: String {
        case searchHistory
+       case loginUser
     }
     
     static func set<T>(value: T, key: DefaultKeys) {
