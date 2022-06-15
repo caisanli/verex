@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import SwiftSoup
 
 struct LoginView: View {
+    @EnvironmentObject var login: LoginVM
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    let baseCodeImage: String = "https://www.v2ex.com/_captcha"
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var code: String = ""
     @State private var once: String = ""
-    @State private var codeImage: String = "https://www.v2ex.com/_captcha"
+    @State private var codeImage: String = ""
     @State private var paramskey: LOGIN_PARAMS_KEY? = nil
     
     var body: some View {
@@ -27,20 +32,24 @@ struct LoginView: View {
                 SecureField("密码", text: $password)
                 HStack {
                     TextField("验证码", text: $code)
+                        .textInputAutocapitalization(.none)
+                    
                     AsyncImage(url: URL(string: codeImage)) { image in
                         image.resizable()
                     } placeholder: {
                         ProgressView()
                     }
                     .frame(width: 120, height: 36, alignment: .center)
-
+                    .onTapGesture {
+                        codeImage = baseCodeImage + "?now=\(Int(Date().timeIntervalSince1970))"
+                    }
+                    
                 }
                 
                 HStack {
                     Spacer()
                     Button("登录") {
-                        login()
-                        
+                        submitlogin()
                     }
                     .buttonStyle(.borderedProminent)
                     Spacer()
@@ -54,12 +63,12 @@ struct LoginView: View {
         .navigationTitle("登录")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
+            codeImage = baseCodeImage
             getLoginParamsKey()
         }
     }
     
-    func login() {
-        print("登录")
+    func submitlogin() {
         guard paramskey != nil else {
             print("没获取到 => paramskey")
             return
@@ -70,9 +79,36 @@ struct LoginView: View {
         form[paramskey!.password] = password
         form[paramskey!.code] = code
         form["once"] = paramskey!.once
-        form["next"] = "/mission/daily"
-        print(form)
-        RequestManager.login(data: form)
+        // 设置登录成功后重定向地址
+        form["next"] = "/"
+        RequestManager.login(data: form) { html in
+            checkLogin(html)
+        }
+    }
+    
+    func checkLogin(_ html: String) {
+        do {
+            let doc = try SwiftSoup.parse(html)
+            let userImg = try doc.select("#Rightbar img.avatar")
+            if userImg.count > 0 {
+                getLoginUser()
+            } else {
+                print("登录失败")
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getLoginUser() {
+        let params = GET_MEMBER_PARAMS(username: username)
+        RequestManager.getMember(params: params) { member in
+            login.isLogin = true
+            login.user = member
+            UserDefaultKeys.set(value: username, key: .loginUser)
+            // 返回上一页
+            self.presentationMode.wrappedValue.dismiss()
+        }
     }
     
     /// 获取登录参数的key
