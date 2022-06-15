@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct verexApp: App {
+    var login: LoginVM = LoginVM()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(login)
         }
     }
 }
