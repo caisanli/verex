@@ -67,13 +67,13 @@ class RequestManager {
     ///   - data: 参数
     ///   - complate: 成功的回调函数
     static func login(data: Any, complate: ((_ result: String) -> Void)? = nil) {
-        let headers: [String:String] = ["Referer": BASE_URL.appending("/signin")]
-        AF.request(APIS.POST_LOGIN, method: .post, parameters: data as! Parameters)
+        let headers: HTTPHeaders = ["Referer": BASE_URL.appending("/signin")]
+        AF.request(APIS.POST_LOGIN, method: .post, parameters: data as! Parameters, headers: headers)
             .responseString { response in
 //                print(response)
                 switch response.result {
                 case .success(let value):
-                    print(value)
+                    complate?(value)
                 case .failure(let error):
                     print(error)
                 }
@@ -90,6 +90,23 @@ class RequestManager {
                 case .success(let result):
                     let data:NodeNavigateInfo = RequestManager.parse(result)
                     complate?(data)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+    }
+    
+    
+    /// 获取用户信息
+    /// - Parameters:
+    ///   - params: GET_MEMBER_PARAMS
+    ///   - complate: 成功回调函数
+    static func getMember(params: GET_MEMBER_PARAMS, complate: ((_ result: Member) -> Void)? = nil) {
+        AF.request(APIS.GET_MEMBER, method: .get, parameters: params, encoder: URLEncodedFormParameterEncoder.default)
+            .responseDecodable(of: Member.self) { response in
+                switch response.result {
+                case .success(let value):
+                    complate?(value)
                 case .failure(let error):
                     print(error)
                 }

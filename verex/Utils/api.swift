@@ -40,7 +40,7 @@ class APIS {
     // 获取自己的Profile
     // method: GET
     // https://www.v2ex.com/api/v2/member
-    static let GET_MEMBER = "\(BASE_API)/v2/member"
+    static let GET_MEMBER_V2 = "\(BASE_API)/v2/member"
 
     // 获取当前使用的令牌
     // method: GET
@@ -123,6 +123,15 @@ class APIS {
     /// }
     static let GET_NODE_INFO = "\(BASE_API)/nodes/show.json"
     
+    
+    /// 获取用户信息
+    /// method: GET
+    /// params: {
+    ///    username 用户名
+    /// }
+    static let GET_MEMBER = "\(BASE_API)/members/show.json"
+    
+    
     // ---- GET_HTML
     // 根据 tab 获取主题列表
     // method: GET
@@ -177,6 +186,10 @@ struct SEARCH_PARAMS: Codable {
     var q: String
     var from: Int?
     var size: Int?
+}
+
+struct GET_MEMBER_PARAMS: Codable {
+    var username: String
 }
 
 struct LOGIN_PARAMS_KEY: Codable {
