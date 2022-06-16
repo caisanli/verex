@@ -26,6 +26,7 @@ class LoginVM: ObservableObject {
         let params = GET_MEMBER_PARAMS(username: username)
         RequestManager.getMember(params: params) { member in
             self.user = member
+            self.isLogin = true
         }
     }
 }
