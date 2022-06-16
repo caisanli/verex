@@ -18,7 +18,7 @@ struct SearchView: View {
     @State var topic: Topic? = nil
     @State var nodes: [String] = []
     @State var activeNode: String? = nil
-    @StateObject var store = NodeNavigateVM()
+    @EnvironmentObject var store: NodeNavigateVM
     
     var body: some View {
         VStack(alignment: .leading) {

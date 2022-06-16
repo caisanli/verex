@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct verexApp: App {
     var login: LoginVM = LoginVM()
+    var nodeNavigateVM = NodeNavigateVM()
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(login)
+                .environmentObject(nodeNavigateVM)
         }
     }
 }
