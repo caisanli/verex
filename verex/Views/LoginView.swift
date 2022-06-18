@@ -29,10 +29,15 @@ struct LoginView: View {
                     .padding(.bottom)
                     .padding(.top, 8)
                 TextField("用户名/邮箱", text: $username)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                    .keyboardType(.asciiCapable)
                 SecureField("密码", text: $password)
                 HStack {
                     TextField("验证码", text: $code)
-                        .textInputAutocapitalization(.none)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .keyboardType(.asciiCapable)
                     
                     AsyncImage(url: URL(string: codeImage)) { image in
                         image.resizable()
