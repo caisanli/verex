@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserView: View {
     @EnvironmentObject var login: LoginVM
+    @State var goLogin = false
     var body: some View {
         VStack(alignment: .leading) {
             if login.isLogin {
@@ -18,14 +19,19 @@ struct UserView: View {
                     LoginView()
                 } label: {
                     Button {
-                        print("去登录了")
+                        self.goLogin = true
                     } label: {
                         Text("去登录")
                     }
                     .buttonStyle(.borderedProminent)
 
                 }
-
+                
+                NavigationLink(isActive: $goLogin) {
+                    LoginView()
+                } label: {
+                    EmptyView()
+                }
 
             }
         }
@@ -35,8 +41,8 @@ struct UserView: View {
     
 }
 
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserView()
-    }
-}
+//struct UserView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserView()
+//    }
+//}
