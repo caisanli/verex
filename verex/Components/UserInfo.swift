@@ -56,7 +56,7 @@ struct UserInfo: View {
             VStack {
                 
                 UserListItem(icon: "gear", title: "设置") {
-                    Text("Test")
+                    SettingView()
                 }
                 
                 UserListItem(icon: "info.circle", title: "关于", isLast: true) {
