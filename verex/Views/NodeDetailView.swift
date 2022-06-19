@@ -28,7 +28,7 @@ struct NodeDetailView: View {
                         .padding(.bottom, 8)
                         
                         RichText {
-                            info.header
+                            info.header ?? ""
                         }
                     }
                 }

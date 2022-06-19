@@ -19,7 +19,7 @@ struct Node: Codable, Hashable, Identifiable {
 //    var url: String // 节点主页
     var topics: Int = 0 // 节点下的主题数量
 //    var footer: String
-    var header: String = "" // 节点描述
+    var header: String? = nil // 节点描述
 //    var stars: Int //
 //    var aliases: [String]
 //    var root: Bool
