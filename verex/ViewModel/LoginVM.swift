@@ -15,6 +15,12 @@ class LoginVM: ObservableObject {
         self.getMember()
     }
     
+    func clean() {
+        UserDefaultKeys.set(value: "", key: .loginUser)
+        self.isLogin = false
+        self.user = nil
+    }
+    
     func getMember() {
         let username = UserDefaultKeys.string(.loginUser) ?? ""
         
