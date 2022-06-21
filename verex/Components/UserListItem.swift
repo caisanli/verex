@@ -11,24 +11,29 @@ struct UserListItem<Destination: View>: View {
     var icon: String
     var title: String
     var isLast: Bool
-    var destination: () -> Destination
+    var rightText: String
+    var destination: (() -> Destination)? = nil
     
     init(
         icon: String,
         title: String,
-        isLast: Bool? = nil,
+        isLast: Bool = false,
+        rightText: String = "",
         @ViewBuilder destination: @escaping () -> Destination
     ) {
             self.icon = icon
             self.title = title
-            self.isLast = isLast ?? true
+            self.rightText = rightText
+            self.isLast = isLast
             self.destination = destination
         }
     
     var body: some View {
         
         NavigationLink {
-            destination()
+            if rightText.isEmpty {
+                destination?()
+            }
         } label: {
             HStack(alignment: .top) {
                 Image(systemName: icon)
@@ -36,8 +41,13 @@ struct UserListItem<Destination: View>: View {
                     HStack {
                         Text(title)
                         Spacer()
-                        Image(systemName: "chevron.right")
-                            .foregroundColor(.secondary)
+                        HStack {
+                            if !rightText.isEmpty {
+                                Text(rightText)
+                            }
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.secondary)
+                        }
                     }
                     Divider()
                     

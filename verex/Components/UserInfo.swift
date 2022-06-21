@@ -58,9 +58,9 @@ struct UserInfo: View {
                 UserListItem(icon: "gear", title: "设置") {
                     SettingView()
                 }
-                
-                UserListItem(icon: "info.circle", title: "关于", isLast: true) {
-                    Text("Test")
+
+                UserListItem(icon: "info.circle", title: "关于", isLast: true, rightText: Bundle.main.releaseVersionNumberPretty) {
+                    EmptyView()
                 }
                 
             }
@@ -80,6 +80,7 @@ struct UserInfo: View {
         let date = Date(timeIntervalSince1970: interval)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let version = Bundle.main.releaseVersionNumberPretty
         return formatter.string(from: date)
     }
 }
